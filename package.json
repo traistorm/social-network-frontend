@@ -11,9 +11,16 @@
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.16",
+    "@tippyjs/react": "^4.2.6",
+    "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12",
+    "classnames": "^2.3.2",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-snowfall": "^1.2.1",
+    "sass": "^1.69.5",
+    "socket.io-client": "^4.7.2"
   },
   "engines": {
     "node": ">=18"

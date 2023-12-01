@@ -1,0 +1,77 @@
+.page-logo {
+    img {
+        width: 70px;
+        height: 70px;
+    }
+
+}
+
+.selected-tab {
+    border-bottom: 4px solid #fff;
+
+}
+
+.tab {
+    font-size: 20px;
+}
+
+.avatar-icon-container {
+    img {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.menu {
+    background-color: rgb(65, 65, 65) !important;
+    margin-right: 120px;
+}
+
+.menu-item:hover {
+    background-color: rgb(117, 115, 115) !important;
+    border-radius: 4px;
+}
+
+.image-icon-menu {
+    width: 30px;
+    height: 30px;
+
+}
+
+.notification {
+    margin-right: 110px;
+}
+
+.unread-notification {
+    background-color: rgb(28, 28, 28);
+    border-radius: 4px;
+}
+
+.read-notification {
+    background-color: rgb(177, 175, 175);
+    border-radius: 4px;
+}
+
+.read-notification:hover,
+.unread-notification:hover {
+    background-color: rgb(67, 164, 244);
+}
+
+.search-contact-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    input {
+        border-radius: 4px;
+        outline: none !important;
+        border: 1px solid rgb(210, 210, 210);
+        padding: 5px;
+    }
+}
+
+.search-contact-button {
+    position: absolute !important;
+    top: -2px;
+    right: 8px;
+}

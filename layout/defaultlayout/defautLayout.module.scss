@@ -1,0 +1,56 @@
+.page-container {
+  min-height: 80vh;
+  border-radius: 10px;
+  background-color: rgb(31, 29, 43);
+
+  // background: linear-gradient(to right, rgb(122, 122, 122),rgb(203, 202, 188));
+
+}
+
+.friends-container {
+  color: white;
+  background-color: rgb(202, 112, 112);
+  border-radius: 6px;
+}
+
+.groups-container {
+  color: white;
+  background-color: rgb(93, 172, 90);
+  border-radius: 6px;
+}
+
+.friends-groups-container {
+
+  // border-right: 2px solid rgb(134, 134, 136);
+}
+
+.friends-icon,
+.groups-icon {
+  background-color: rgb(110, 87, 133);
+}
+
+.friends-list-container {
+  overflow-y: auto;
+}
+
+.groups-list-container {
+  overflow-y: auto;
+}
+@media (min-width: 1535px) {
+  .friends-container {
+    height: 45%;
+  }
+  .groups-container {
+
+    height: 45%;
+  }
+  .friends-list-container
+  {
+    height: 80%;
+  }
+  .groups-list-container
+  {
+    height: 80%;
+  }
+
+}
