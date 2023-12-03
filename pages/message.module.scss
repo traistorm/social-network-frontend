@@ -1,0 +1,133 @@
+.contact-container {
+    background: linear-gradient(to right, rgb(0, 229, 255),rgb(247, 106, 106));
+    border-radius: 4px 0px 0px 4px;
+    border-right: 1px rgb(188, 188, 188) solid;
+
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+
+.message-container {
+    background: linear-gradient(to right, rgb(247, 106, 106),rgb(166, 66, 243));
+    border-radius: 0px 4px 4px 0px;
+
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.search-contact-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    input {
+        border-radius: 4px;
+        outline: none !important;
+        border: 1px solid rgb(210, 210, 210);
+        padding: 5px;
+    }
+}
+
+.clear-friends-online-search {
+    position: absolute !important;
+    top: -2px;
+    right: 8px;
+}
+
+.contact-online-container {
+    // background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    margin-bottom: 15px;
+
+}
+
+.contact-item {
+    background: linear-gradient(to right, rgb(185, 111, 245),rgb(129, 140, 245));
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.message-container {
+    padding: 10px;
+}
+
+.message-content-receiver {
+    background-color: rgb(188, 186, 184);
+    border-radius: 8px;
+    padding: 6px;
+    word-wrap: break-word;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+.message-content-sender {
+    background-color: rgb(49, 176, 249);
+    border-radius: 8px;
+    padding: 6px;
+    word-wrap: break-word;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+.username-in-chat {
+    border-bottom: 2px solid rgb(181, 178, 178);
+    padding: 2px;
+}
+
+.message-content-container {
+    overflow-x: auto;
+}
+
+.send-message-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.send-message-input {
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid rgb(210, 210, 210);
+    padding: 5px;
+    padding-right: 80px;
+    width: 100%;
+}
+
+.send-message-button {
+    position: absolute !important;
+    top: -2px;
+    right: 1px;
+
+}
+
+.emoji-message-button {
+    outline: none !important;
+    position: absolute !important;
+    top: -5px;
+    right: 35px;
+
+    img {
+        transition: transform .7s ease-in-out;
+    }
+
+    img:hover {
+        transform: rotate(360deg);
+    }
+}
+
+.icon-on-off {}

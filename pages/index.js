@@ -1,57 +1,74 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import Image from 'next/image';
-import InputLabel from '@mui/material/InputLabel';
-import Box from '@mui/material/Box';
-import Input from '@mui/material/Input';
-import InputAdornment from '@mui/material/InputAdornment';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import TextField from '@mui/material/TextField';
-import LoginIcon from '@mui/icons-material/Login';
-import IconButton from '@mui/material/IconButton';
+import styles from './index.module.scss';
+import { Backdrop, Box, CircularProgress, Modal, Typography } from "@mui/material";
+import { login } from '../api/login.api.js';
+import React, { useState } from 'react'
+import Cookies from 'js-cookie';
+import classNames from "classnames/bind";
+const cx = classNames.bind(styles)
 
 export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const loginUser = () => {
+    setIsLoading(true)
+    login(username, password).then((res) => {
+      setIsLoading(false)
+      //const obj = JSON.parse(res.data);
+      console.log(res.data)
+
+      // Set cookies
+      Cookies.set("token", res.data.token)
+      Cookies.set("roles", res.data.roles[0])
+      Cookies.set("userId", res.data.userId)
+
+      //console.log(Cookies.get("role"))
+      if (res.data.roles[0] === "ROLE_USER" || res.data.roles[0] === "ROLE_ADMIN") {
+        window.location.href = "/home"
+      }
+      //window.location.href = "/home"
+    }, (err) => {
+      setIsLoading(false)
+    })
+  }
+  const handleChangeUsername = (e) => {
+    setUsername(e.target.value)
+  }
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value)
+  }
   return (
-    <>
-      {/* Login */}
-      <div className='flex justify-center items-center h-screen bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%'>
-        <div className='flex justify-center items-center w-6/12 h-1/2 bg-gradient-to-r from-orange-400 from-10% via-red-400 via-30% to-yellow-500 to-90% p-2 rounded-xl'>
-          <div className=''>
-            <Image
-              src="/images/login1.jpg"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-max h-auto rounded-xl"
-            />
+      <>
+        <div className={cx('login-body')}>
+          <div className={cx('login-container')}>
+            <div className={cx('drop')}>
+              <div className={cx('content')}>
+                <h2 class='animate__heartBeat'>LOGIN</h2>
+                <form action="">
+                  <div className={cx('input-box')}>
+                    <input value={username} type="text" name="username" placeholder="Username" onChange={handleChangeUsername} />
+                  </div>
+                  <div className={cx('input-box')}>
+                    <input value={password} type="password" name="password" placeholder="Password" onChange={handleChangePassword} />
+                  </div>
+                  <div className={cx('input-box')}>
+                    <input onClick={loginUser} className={cx('input-box-submit')} type="button" value="Login" />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <a href="#" className={cx('btn')}>Forgot Password</a>
+            <a href="#" className={cx('btn', 'signup')}>Signup</a>
           </div>
-          <div>
-            <Box
-              component="form"
-              sx={{
-                '& > :not(style)': { m: 1, width: '25ch' },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField label="Username" variant="filled" color="success" focused />
-            </Box>
-            <Box
-              component="form"
-              sx={{
-                '& > :not(style)': { m: 1, width: '25ch' },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField label="Password" variant="filled" color="success" focused />
-            </Box>
-            <IconButton aria-label="fingerprint" color="success">
-              <LoginIcon />
-            </IconButton>
-          </div>
+          <Backdrop
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open={isLoading}
+              onClick={null}
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop>
         </div>
-      </div>
-    </>
+      </>
   );
 }

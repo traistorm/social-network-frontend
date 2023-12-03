@@ -77,21 +77,23 @@ export default function Header () {
         }
     }, [])
     return (
-        <div className="flex justify-between items-center mt-2" style={{ height: "100%" }}>
-            <div className={cx('flex', 'items-center')}>
-                <div className={cx('page-logo')}>
-                    <Image src={images.sun} alt="sun" />
-                </div>
-                <div className={cx('search-contact-container', 'flex')}>
-                    <div style={{ position: "relative" }}>
-                        <input className={cx('search-contact-input')} type="text" value="" placeholder="Search contact..." />
-                        <IconButton className={cx('search-contact-button')} style={{ outline: "none" }}>
-                            <SearchIcon />
-                        </IconButton>
+        <div className="grid grid-cols-6 mt-2 p-2 place-items-center" style={{ height: "100%" }}>
+            <div className={cx('col-span-1', 'w-full')}>
+                <div className={"flex justify-start items-center ml-2"}>
+                    <div className={cx('page-logo')}>
+                        <Image src={images.sun} alt="sun" />
+                    </div>
+                    <div className={cx('search-contact-container', 'flex')}>
+                        <div style={{ position: "relative" }}>
+                            <input className={cx('search-contact-input')} type="text" value="" placeholder="Search contact..." />
+                            <IconButton className={cx('search-contact-button')} style={{ outline: "none" }}>
+                                <SearchIcon />
+                            </IconButton>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-6">
+            <div className="col-span-4 grid grid-cols-6 place-items-center">
                 <div className={selectHome ? cx('col-span-2', 'flex', 'justify-center', 'selected-tab', 'p-3') : cx('col-span-2', 'flex', 'justify-center', 'p-3')}>
                     <div className={cx('text-center', 'text-white', 'tab')} data-tabname={"Home"}><Link onClick={selectHomePage} href="/home">Home</Link></div>
                 </div>
@@ -103,10 +105,11 @@ export default function Header () {
                 </div>
 
             </div>
-            <div className="text-white dlex items-center">
-                <Tippy className={cx('notification')}
-                    interactive="true"
-                    placement="bottom" arrow={false} onClickOutside={handleCloseNotification} visible={isNotificationEnable} content={
+            <div className="text-white col-span-1 w-full">
+                <div className={"flex justify-end items-center mr-2"}>
+                    <Tippy className={cx('notification', 'mr-2')}
+                           interactive="true"
+                           placement="bottom" arrow={false} onClickOutside={handleCloseNotification} visible={isNotificationEnable} content={
                         <div className="">
                             <div className={cx('p-2', 'unread-notification', 'mb-1')}><Image className="mr-2" src={images.thunder2} style={{ width: "30px", height: "30px", borderRadius: "50%" }}  alt={"img"}/><span>Hung sent message to you!</span></div>
                             <div className={cx('p-2', 'unread-notification', 'mb-1')}><Image className="mr-2" src={images.thunder2} style={{ width: "30px", height: "30px", borderRadius: "50%" }}  alt={"img"} /><span>Hung sent message to you!</span></div>
@@ -114,19 +117,19 @@ export default function Header () {
                             <div className={cx('p-2', 'read-notification', 'mb-1')}><Image className="mr-2" src={images.thunder2} style={{ width: "30px", height: "30px", borderRadius: "50%" }}  alt={"img"} /><span>Hung sent message to you!</span></div>
                         </div>
                     }>
-                    <Badge className="mr-3" badgeContent={5} color="success" style={{ color: "white" }} sx={{
-                        "& .MuiBadge-badge": {
-                            color: "lightgreen",
-                            backgroundColor: "red"
-                        }
-                    }}>
-                        <NotificationsIcon onClick={handleOpenNotification}></NotificationsIcon>
-                    </Badge>
-                </Tippy>
+                        <Badge className="mr-3" badgeContent={5} color="success" style={{ color: "white" }} sx={{
+                            "& .MuiBadge-badge": {
+                                color: "lightgreen",
+                                backgroundColor: "red"
+                            }
+                        }}>
+                            <NotificationsIcon onClick={handleOpenNotification}></NotificationsIcon>
+                        </Badge>
+                    </Tippy>
 
-                <Tippy className={cx('menu')}
-                    interactive="true"
-                    placement="bottom" arrow={false} onClickOutside={handleCloseMenu} visible={isMenuEnable} content={
+                    <Tippy className={cx('menu', 'mr-2')}
+                           interactive="true"
+                           placement="bottom" arrow={false} onClickOutside={handleCloseMenu} visible={isMenuEnable} content={
                         <div className="">
                             {(() => {
                                 if (snow == null) {
@@ -145,13 +148,11 @@ export default function Header () {
                             <div className={cx('p-1', 'menu-item')}><Image src={images.logout} className={cx('image-icon-menu')}  alt={"img"} /><span>Logout</span></div>
                         </div>
                     }>
-                    <div onClick={handleOpenMenu} className={cx('avatar-icon-container')}>
-                        <Image src={images.avatar}  alt={"img"} />
-                    </div>
-                </Tippy>
-
-                {/* <div onClick={addClass}>Notification + User</div> */}
-
+                        <div onClick={handleOpenMenu} className={cx('avatar-icon-container')}>
+                            <Image src={images.avatar}  alt={"img"} />
+                        </div>
+                    </Tippy>
+                </div>
             </div>
             {snow}
         </div>

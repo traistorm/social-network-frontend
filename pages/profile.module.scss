@@ -1,0 +1,12 @@
+.profile-container {
+  background: linear-gradient(to right, rgb(185, 229, 246), rgb(185, 188, 188));
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+}
