@@ -7,14 +7,8 @@ import { Button, FormControl, IconButton, InputLabel, MenuItem, NativeSelect, Se
 import PublicIcon from '@mui/icons-material/Public';
 import LockIcon from '@mui/icons-material/Lock';
 import GroupIcon from '@mui/icons-material/Group';
-import ImageIcon from '@mui/icons-material/Image';
-import { Delete } from "@mui/icons-material";
-import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
-import CloudIcon from '@mui/icons-material/Cloud';
-import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import SettingsIcon from '@mui/icons-material/Settings';
 import CommentIcon from '@mui/icons-material/Comment';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import * as cheerio from 'cheerio';

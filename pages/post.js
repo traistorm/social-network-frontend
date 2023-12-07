@@ -1,11 +1,9 @@
 import styles from "./post.module.scss"
 import classNames from "classnames/bind";
-import images from "../public/images";
-import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { useEffect } from "react";
 import { useState } from "react";
-import { getPost } from "../../api/api";
+import Link from "next/link";
 const cx = classNames.bind(styles)
 
 const markdown = `
@@ -17,15 +15,15 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 const Post = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [post, setPost] = useState([]);
-    const tag = window.location.pathname.split("/")[2]
-    const id = window.location.pathname.split("/")[3]
+    /*const tag = window.location.pathname.split("/")[2]
+    const id = window.location.pathname.split("/")[3]*/
     useEffect(() => {
-        getPost(tag, id).then((res) => {
+        /*getPost(tag, id).then((res) => {
             setPost(res.data)
             setIsLoading(false)
         }, (err) => {
             setIsLoading(false)
-        })
+        })*/
     }, [])
     return (
         <div className={cx('p-2', '', '')} style={{ height: "100%", width: "100%" }}>
@@ -36,7 +34,7 @@ const Post = () => {
 
                             <div className={cx('d-flex', 'justify-content-center')} style={{ width: "100%" }}>
                                 <div style={{ width: "80%" }}>
-                                    <div><Link>AOE DE</Link> &gt; <Link>{post.title}</Link></div>
+                                    <div><a>AOE DE</a> &gt; <a>{post.title}</a></div>
 
                                     <div className={cx('post-time')}>May 1, 2022 </div>
                                     <h3 className={cx('title')}>{post.title}</h3>

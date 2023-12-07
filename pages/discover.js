@@ -1,6 +1,5 @@
 import styles from "./discover.module.scss"
 import classNames from "classnames/bind";
-import images from "../public/images";
 import React, { useEffect } from "react";
 import { getCategoryPost } from "../api/post.api";
 import { useState } from "react";
@@ -8,7 +7,6 @@ import { Backdrop, CircularProgress } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import DefaultLayout from "../layout/defaultlayout";
-import Message from "./message";
 const cx = classNames.bind(styles)
 
 
